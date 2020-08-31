@@ -1,0 +1,42 @@
+def groundship(weight):
+  if (weight <= 2):  
+    return weight * 1.50 + 20.00
+  elif (weight > 2) and (weight <= 6):
+    return weight * 3.00 + 20.00
+  elif (weight > 6) and (weight <= 10):
+    return weight * 4.00 + 20.00
+  else:
+    return weight * 4.75 + 20.00
+
+cost = groundship(8.4)
+#print(cost)
+
+#cost for premium shipping
+flatcost = 125.00
+
+def droneship(w):
+  if (w <= 2):
+    return w * 4.50 
+  elif (2 < w < 6):
+    return w * 9.00
+  elif (6 < w < 10):
+    return w * 12.00
+  else:
+    return w * 14.25
+
+dronecost = droneship(1.5)
+#print(dronecost)
+
+def cheapest_shipping_method(weight):
+  groundcost = groundship(weight)
+  dronecost = droneship(weight)
+  if (groundcost > dronecost) and (groundcost < flatcost):
+    print ("Thanks for cUse ground shipping! It will cost $" + str(dronecost) + ". ")
+  elif groundcost > dronecost) and not (groundcost < flatcost):
+    print ("Ground shipping issss theeee bestt. It only costs $" + str(groundcost) + ". K? THanks!")
+
+rec_engine_prototype_alpha = cheapest_shipping_method(4.8)
+print(rec_engine_prototype_alpha)
+
+rec_engine_prototype_alpha = cheapest_shipping_method(41.5)
+print(rec_engine_prototype_alpha)
